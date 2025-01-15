@@ -1,7 +1,13 @@
+import FootNote from "../Components/FootNote"
+import NavBarMain from "../Components/NavBarMain"
 export default function LogIn(){
     return(
         <>
-            Games Page
+            <NavBarMain/>
+            <div className="min-h-screen">
+                <></>
+            </div>
+            <FootNote/>
         </>
     )
 }
