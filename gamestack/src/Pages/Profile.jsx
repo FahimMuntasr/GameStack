@@ -1,7 +1,12 @@
-export default function LogIn(){
+import FootNote from "../Components/FootNote"
+import NavBarMain from "../Components/NavBarMain"
+export default function Profile(){
     return(
         <>
-            Profile Page
+            <NavBarMain/>
+            <div className="min-h-screen">                    
+            </div>
+            <FootNote/>
         </>
     )
 }
