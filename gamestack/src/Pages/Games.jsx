@@ -5,7 +5,7 @@ export default function LogIn(){
         <>
             <NavBarMain/>
             <div className="min-h-screen">
-                <></>
+                    
             </div>
             <FootNote/>
         </>
