@@ -43,52 +43,53 @@ export default function Games(){
             <div className="flex flex-row">
                 <div className="flex flex-col bg-zinc-950 w-1/6">
                     <div className="flex flex-col justify-center items-start p-5">
-                        <h1 className="font-bold text-stone-100 text-4xl pb-8">Browse</h1>
-                        <Link to={'/games'}className="text-stone-100 text-2xl">All Games</Link>
-                        <div>
+                        <Link to={'/games'}className="text-stone-100 text-2xl">
+                            <span className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">All Games</span>
+                        </Link>
+                        <div className="pt-8">
                             <span className="text-stone-100 text-2xl">Stores</span>
-                            <ul className="text-stone-100">
-                                <li>Steam</li>
-                                <li>PlayStation Store</li>
-                                <li>Xbox Store</li>
-                                <li>Nintendo Store</li>
-                                <li>GOG</li>
-                                <li>IOS App Store</li>
-                                <li>Google Play Store</li>
+                            <ul className="text-stone-100 pt-2 pl-4">
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Steam</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">PlayStation Store</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Xbox Store</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Nintendo Store</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">GOG</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">IOS App Store</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Google Play Store</li>
                             </ul>
                         </div>
-                        <div>
+                        <div className="pt-8">
                             <span className="text-stone-100 text-2xl">Platforms</span>
-                            <ul className="text-stone-100">
-                                <li>PC</li>
-                                <li>PS5</li>
-                                <li>PS4</li>
-                                <li>Xbox X/S</li>
-                                <li>Xbox One</li>
-                                <li>Nintendo Switch</li>
-                                <li>IOS</li>
-                                <li>Android</li>
-                                <li>MacOS</li>
-                                <li>Linux</li>
-                                <li>Xbox 360</li>
+                            <ul className="text-stone-100 pt-2 pl-4">
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">PC</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">PS5</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">PS4</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Xbox X/S</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Xbox One</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Nintendo Switch</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">IOS</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Android</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">MacOS</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Linux</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Xbox 360</li>
                             </ul>
                         </div>
-                        <div>
+                        <div className="pt-8">
                             <span className="text-stone-100 text-2xl">Genres</span>
-                            <ul className="text-stone-100">
-                                <li>Action</li>
-                                <li>Indie</li>
-                                <li>Adventure</li>
-                                <li>RPG</li>
-                                <li>Racing</li>
-                                <li>Sports</li>
-                                <li>Strategy</li>
-                                <li>Shooter</li>
-                                <li>Simulation</li>
-                                <li>Puzzle</li>
-                                <li>Arcade</li>
-                                <li>Platformer</li>
-                                <li>MMO</li>
+                            <ul className="text-stone-100 pt-2 pl-4">
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Action</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Indie</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Adventure</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">RPG</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Racing</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Sports</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Strategy</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Shooter</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Simulation</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Puzzle</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Arcade</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">Platformer</li>
+                                <li className="text-cyan-500 hover:text-rose-500 transition-colors duration-100 ease-in">MMO</li>
                             </ul>
                         </div>
                     </div>
