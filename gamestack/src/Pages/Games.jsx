@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import FootNote from "../Components/FootNote"
 import GameCard from "../Components/GameCard"
 import NavBarMain from "../Components/NavBarMain"
@@ -37,7 +38,9 @@ export default function Games(){
             <NavBarMain/>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                   {games.map((game)=>(
-                    <GameCard key={game.id}game={game}/>
+                    <Link to={'/profile'}>
+                        <GameCard key={game.id}game={game}/>
+                    </Link>
                   ))}
             </div>
             <FootNote/>

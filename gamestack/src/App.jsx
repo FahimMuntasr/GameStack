@@ -5,14 +5,10 @@ import Games from './Pages/Games.jsx'
 import Profile from './Pages/Profile.jsx'
 import LandingPage from './Pages/LandingPage.jsx'
 import NoPage from './Pages/NoPage.jsx'
-import { useEffect } from 'react'
+
 
 export default function App(){
-    // useEffect(()=>{
-    //     fetch(`https://api.rawg.io/api/developers?key=183b214550c74ba2b84e5a8c05960de2`)
-    //         .then((response) => response.json()) 
-    //         .then((data) => console.log(data.results)) 
-    // },[]);
+    
     return(
         <div>
             <BrowserRouter>
