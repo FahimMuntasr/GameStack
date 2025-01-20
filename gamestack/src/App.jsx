@@ -17,7 +17,7 @@ export default function App(){
                     <Route path='/home' element={<LandingPage/>}/>
                     <Route path='/login' element={<LogIn/>}/>
                     <Route path='/register' element={<CreateAcc/>}/>
-                    <Route path='/games' element={<Games/>}/>
+                    <Route path='/games' element={<Games pageNum={1}/>}/>
                     <Route path='/profile' element={<Profile/>}/>
                     <Route path='/*' element={<NoPage/>}/>
                 </Routes>
