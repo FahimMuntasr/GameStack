@@ -9,7 +9,7 @@ export default function Games(){
     const [games, setGames] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [filters, setFilters] = useState({ genre: "", platform: "", store: ""});
+    const [filters, setFilters] = useState({ genre: "", platform: "", store: "" });
     const [currentPage, setCurrentPage] = useState(1);
 
     const buildApiUrl = () => {
@@ -25,7 +25,7 @@ export default function Games(){
        if(filters.store){
             url += `&stores=${filters.store}`;
        }
-
+       console.log(url);
        return url;
     }
 

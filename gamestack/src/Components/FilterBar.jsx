@@ -21,36 +21,39 @@ export default function FilterBar({ filters, setFilters }) {
         {value: "card", label : "Card"},
     ]; // Add or modify genres as needed
     const platforms = [
-        {value: "pc", label: "PC"},
-        {value: "playstation5", label: "PS5"},
-        {value: "xbox-series-x", label: "Xbox X/S"},
-        {value: "nintendo-switch", label: "Nintendo Switch"},
-        {value: "playstation4", label: "PS4"},
-        {value: "xbox-one", label: "Xbox One"},
-        {value: "wii-u", label: "Wii U"},
-        {value: "playstation3", label: "PS3"},
-        {value: "xbox360", label: "Xbox 360"},
-        {value: "ps-vita", label: "PS Vita"},
-        {value: "psp", label: "PSP"},
-        {value: "nintendo-64", label: "Nintendo 64"},
-        {value: "wii", label: "Wii"},
-        {value: "playstation2", label: "PS2"},
-        {value: "game-boy-advance", label: "Game Boy Advance"},
-        {value: "playstation1", label: "PS1"},
-        {value: "ios", label: "IOS"},
-        {value: "android", label: "Android"},
-        {value: "macos", label: "MacOS"},
-        {value: "linux", label: "Linux"},
-        {value: "gamecube", label: "GameCube"},
-        {value: "game-boy-color", label: "Game Boy Color"},
-        {value: "game-boy", label: "Game Boy"},
-        {value: "snes", label: "SNES"},
-        {value: "nes", label: "NES"},
-        {value: "xbox-old", label: "Xbox"},
-        {value: "nintendo-3ds", label: "Nintendo 3DS"},
-        {value: "nintendo-ds", label: "Nintendo DS"},
+        {value: 4, label: "PC"},
+        {value: 187, label: "PS5"},
+        {value: 186, label: "Xbox X/S"},
+        {value: 7, label: "Nintendo Switch"},
+        {value: 18, label: "PS4"},
+        {value: 1, label: "Xbox One"},
+        {value: 10, label: "Wii U"},
+        {value: 16, label: "PS3"},
+        {value: 14, label: "Xbox 360"},
+        {value: 19, label: "PS Vita"},
+        {value: 17, label: "PSP"},
+        {value: 11, label: "Wii"},
+        {value: 15, label: "PS2"},
+        {value: 24, label: "Game Boy Advance"},
+        {value: 27, label: "PS1"},
+        {value: 5, label: "MacOS"},
+        {value: 6, label: "Linux"},
+        {value: 105, label: "GameCube"},
+        {value: 43, label: "Game Boy Color"},
+        {value: 26, label: "Game Boy"},
+        {value: 79, label: "SNES"},
+        {value: 49, label: "NES"},
+        {value: 8, label: "Nintendo 3DS"},
+        {value: 9, label: "Nintendo DS"},
     ]; // Replace with actual platform IDs/names if available
-    const stores = ["Steam", "Epic Games", "PlayStation Store", "Xbox Store"]; // Replace with actual store IDs/names if available
+    const stores = [
+        {value: 1 , label: "Steam"},
+        {value: 2 , label: "Nintendo Store"},
+        {value: 3 , label: "PlayStation Store"},
+        {value: 4 , label: "Epic Games"},
+        {value: 5 , label: "Xbox Store"},
+        {value: 6 , label: "GOG"},
+    ]; // Replace with actual store IDs/names if available
 
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
@@ -118,8 +121,8 @@ export default function FilterBar({ filters, setFilters }) {
                 >
                     <option value="">All Stores</option>
                     {stores.map((store) => (
-                        <option key={store} value={store}>
-                            {store}
+                        <option key={store.value} value={store.value}>
+                            {store.label}
                         </option>
                     ))}
                 </select>
