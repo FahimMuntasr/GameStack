@@ -64,7 +64,7 @@ export default function FilterBar({ filters, setFilters }) {
     };
 
     return (
-        <div className="p-4 bg-zinc-900 text-white justify-between items-center">
+        <div className="flex flex-row w-full p-4 bg-zinc-900 text-white justify-between items-center ">
             {/* Genre Filter */}
             <div className="flex flex-col mr-4">
                 <label htmlFor="genre" className="mb-2 text-3xl font-bold">
@@ -75,11 +75,25 @@ export default function FilterBar({ filters, setFilters }) {
                     name="genre"
                     value={filters.genre}
                     onChange={handleFilterChange}
-                    className="p-2 rounded bg-gray-700 text-white"
+                    className={`
+                        p-2 
+                        text-xl 
+                        bg-zinc-900 
+                        text-white 
+                        transition-colors 
+                        duration-200 
+                        ease-in 
+                        border-t-0 
+                        border-l-0 
+                        border-r-0 
+                        border-b-4 
+                        border-zinc-900 
+                        hover:border-rose-500 
+                        focus:border-rose-500`}
                 >
                     <option value="">All Genres</option>
                     {genres.map((genre) => (
-                        <option key={genre.value} value={genre.value}>
+                        <option  key={genre.value} value={genre.value}>
                             {genre.label}
                         </option>
                     ))}
@@ -96,7 +110,21 @@ export default function FilterBar({ filters, setFilters }) {
                     name="platform"
                     value={filters.platforms}
                     onChange={handleFilterChange}
-                    className="p-2 rounded bg-gray-700 text-white"
+                    className={`
+                        p-2 
+                        text-xl 
+                        bg-zinc-900 
+                        text-white 
+                        transition-colors 
+                        duration-200 
+                        ease-in 
+                        border-t-0 
+                        border-l-0 
+                        border-r-0 
+                        border-b-4 
+                        border-zinc-900 
+                        hover:border-rose-500 
+                        focus:border-rose-500`}
                 >
                     <option value="">All Platforms</option>
                     {platforms.map((platform) => (
@@ -117,7 +145,21 @@ export default function FilterBar({ filters, setFilters }) {
                     name="store"
                     value={filters.store}
                     onChange={handleFilterChange}
-                    className="p-2 rounded bg-gray-700 text-white"
+                    className={`
+                        p-2 
+                        text-xl 
+                        bg-zinc-900 
+                        text-white 
+                        transition-colors 
+                        duration-200 
+                        ease-in 
+                        border-t-0 
+                        border-l-0 
+                        border-r-0 
+                        border-b-4 
+                        border-zinc-900 
+                        hover:border-rose-500 
+                        focus:border-rose-500`}
                 >
                     <option value="">All Stores</option>
                     {stores.map((store) => (

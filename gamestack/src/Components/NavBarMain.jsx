@@ -10,10 +10,10 @@ export default function NavBarMain(){
                         <span className="text-cyan-500">Stack</span>
                 </div>
                 <Link to="/profile">
-                    <span className="text-stone-100 hover:text-rose-600 transition-colors duration-100 ease-in">Profile</span>
+                    <span className="text-stone-100 hover:text-rose-600 transition-colors duration-200 ease-in">Profile</span>
                 </Link>
                 <Link to="/games">
-                    <span className="text-stone-100 hover:text-rose-600 transition-colors duration-100 ease-in">Games</span>
+                    <span className="text-stone-100 hover:text-rose-600 transition-colors duration-200 ease-in">Games</span>
                 </Link>
                 <TextInput text={"Search"} className={"mr-4"}/>
             </div>

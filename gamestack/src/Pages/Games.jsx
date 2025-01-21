@@ -65,7 +65,7 @@ export default function Games(){
     return(
         <>
             <NavBarMain/>
-            <div className='flex flex-row'>
+            <div className='flex flex-col justify-center items-center'>
                 <FilterBar filters={filters} setFilters={setFilters}/>
                 <div className="w-5/6 flex flex-row">
                     <GameSection games={games} title={'All Games'}/>
