@@ -64,11 +64,11 @@ export default function FilterBar({ filters, setFilters }) {
     };
 
     return (
-        <div className="p-4 bg-gray-800 text-white rounded-lg flex flex-wrap justify-between items-center">
+        <div className="p-4 bg-zinc-900 text-white justify-between items-center">
             {/* Genre Filter */}
             <div className="flex flex-col mr-4">
-                <label htmlFor="genre" className="mb-2 text-sm font-medium">
-                    Filter by Genre:
+                <label htmlFor="genre" className="mb-2 text-3xl font-bold">
+                    Genre
                 </label>
                 <select
                     id="genre"
@@ -88,8 +88,8 @@ export default function FilterBar({ filters, setFilters }) {
 
             {/* Platform Filter */}
             <div className="flex flex-col mr-4">
-                <label htmlFor="platform" className="mb-2 text-sm font-medium">
-                    Filter by Platform:
+                <label htmlFor="platform" className="mb-2 mt-2 text-3xl font-bold">
+                    Platform
                 </label>
                 <select
                     id="platform"
@@ -109,8 +109,8 @@ export default function FilterBar({ filters, setFilters }) {
 
             {/* Store Filter */}
             <div className="flex flex-col mr-4">
-                <label htmlFor="store" className="mb-2 text-sm font-medium">
-                    Filter by Store:
+                <label htmlFor="store" className="mb-2 mt-2 text-3xl font-bold">
+                    Store
                 </label>
                 <select
                     id="store"

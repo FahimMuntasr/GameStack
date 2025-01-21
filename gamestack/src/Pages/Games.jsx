@@ -65,9 +65,11 @@ export default function Games(){
     return(
         <>
             <NavBarMain/>
-            <FilterBar filters={filters} setFilters={setFilters}/>
-            <div className="flex flex-row">
-                <GameSection games={games} title={'All Games'}/>
+            <div className='flex flex-row'>
+                <FilterBar filters={filters} setFilters={setFilters}/>
+                <div className="w-5/6 flex flex-row">
+                    <GameSection games={games} title={'All Games'}/>
+                </div>
             </div>
             <FootNote/>
         </>
