@@ -67,7 +67,7 @@ export default function FilterBar({ filters, setFilters }) {
         <div className="flex flex-row w-full p-4 bg-zinc-900 text-white justify-between items-center ">
             {/* Genre Filter */}
             <div className="flex flex-col mr-4">
-                <label htmlFor="genre" className="mb-2 text-3xl font-bold">
+                <label htmlFor="genre" className="mb-2 text-2xl font-bold">
                     Genre
                 </label>
                 <select
@@ -87,6 +87,7 @@ export default function FilterBar({ filters, setFilters }) {
                         border-l-0 
                         border-r-0 
                         border-b-4 
+                        cursor-pointer
                         border-zinc-900 
                         hover:border-rose-500 
                         focus:border-rose-500`}
@@ -102,7 +103,7 @@ export default function FilterBar({ filters, setFilters }) {
 
             {/* Platform Filter */}
             <div className="flex flex-col mr-4">
-                <label htmlFor="platform" className="mb-2 mt-2 text-3xl font-bold">
+                <label htmlFor="platform" className="mb-2 mt-2 text-2xl font-bold">
                     Platform
                 </label>
                 <select
@@ -122,6 +123,7 @@ export default function FilterBar({ filters, setFilters }) {
                         border-l-0 
                         border-r-0 
                         border-b-4 
+                        cursor-pointer
                         border-zinc-900 
                         hover:border-rose-500 
                         focus:border-rose-500`}
@@ -137,7 +139,7 @@ export default function FilterBar({ filters, setFilters }) {
 
             {/* Store Filter */}
             <div className="flex flex-col mr-4">
-                <label htmlFor="store" className="mb-2 mt-2 text-3xl font-bold">
+                <label htmlFor="store" className="mb-2 mt-2 text-2xl font-bold">
                     Store
                 </label>
                 <select
@@ -157,6 +159,7 @@ export default function FilterBar({ filters, setFilters }) {
                         border-l-0 
                         border-r-0 
                         border-b-4 
+                        cursor-pointer
                         border-zinc-900 
                         hover:border-rose-500 
                         focus:border-rose-500`}
