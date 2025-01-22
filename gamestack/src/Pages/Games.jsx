@@ -74,7 +74,7 @@ export default function Games() {
         );
 
     return (
-        <>
+        <div className='flex flex-col justify-between'>
             <NavBarMain />
             <div className="flex flex-col justify-center items-center">
                 <FilterBar filters={filters} setFilters={setFilters} />
@@ -127,6 +127,6 @@ export default function Games() {
                 </div>
             </div>
             <FootNote />
-        </>
+        </div>
     );
 }
