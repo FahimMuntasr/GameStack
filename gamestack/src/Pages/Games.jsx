@@ -17,6 +17,16 @@ export default function Games() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState(""); // 🔍 new state
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(""); // debounced
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+      setCurrentPage(1); // Optional: reset to page 1 on new search
+    }, 100); // 500ms debounce
+
+    return () => clearTimeout(timeout);
+  }, [searchQuery]);
 
   const buildApiUrl = () => {
     const apiKey = "183b214550c74ba2b84e5a8c05960de2";
@@ -47,7 +57,7 @@ export default function Games() {
     };
 
     fetchGames();
-  }, [currentPage, filters, searchQuery]); // 👈 react to searchQuery
+  }, [currentPage, filters, debouncedSearchQuery]); // 👈 react to searchQuery
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
