@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
+NavBarMain.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+  setSearchQuery: PropTypes.func.isRequired,
+};
 export default function NavBarMain({ searchQuery, setSearchQuery }) {
   return (
     <>

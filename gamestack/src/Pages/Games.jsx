@@ -23,7 +23,7 @@ export default function Games() {
     const timeout = setTimeout(() => {
       setDebouncedSearchQuery(searchQuery);
       setCurrentPage(1); // Optional: reset to page 1 on new search
-    }, 100); // 500ms debounce
+    }, 500); // 500ms debounce
 
     return () => clearTimeout(timeout);
   }, [searchQuery]);
