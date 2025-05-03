@@ -27,6 +27,7 @@ export default function Profile() {
       });
     }
     console.log(profile);
+    //localStorage.setItem();
   }, [navigate]);
 
   return (

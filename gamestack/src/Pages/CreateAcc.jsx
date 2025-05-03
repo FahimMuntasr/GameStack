@@ -10,6 +10,9 @@ export default function CreateAcc() {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState("");
+  const [backlog, setBacklog] = useState([]);
+  const [playing, setPlaying] = useState([]);
+  const [completed, setCompleted] = useState([]);
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {
@@ -41,8 +44,10 @@ export default function CreateAcc() {
       setError("Email already exists.");
       return;
     }
-
-    const newUser = { username, email, password };
+    setBacklog();
+    setCompleted();
+    setPlaying();
+    const newUser = { username, email, password, backlog, playing, completed };
     existingUser.push(newUser);
     localStorage.setItem("users", JSON.stringify(existingUser));
     navigate("/login");

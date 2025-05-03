@@ -54,6 +54,54 @@ export default function GameDetails() {
       </div>
     );
   }
+
+  const addToList = (listName) => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (!currentUser || !currentUser.email) {
+      alert("User not logged in.");
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userIndex = users.findIndex((u) => u.email === currentUser.email);
+
+    if (userIndex === -1) {
+      alert("Current user not found.");
+      return;
+    }
+
+    const user = users[userIndex];
+
+    if (!user[listName]) {
+      user[listName] = [];
+    }
+    const alreadyExists =
+      ["backlog", "playing"].some((list) => user[list].includes(id)) ||
+      user.completed.some((entry) =>
+        Array.isArray(entry) ? entry[0] == id : entry === id
+      );
+    if (!alreadyExists) {
+      if (listName === "completed") {
+        let rating = prompt("Enter your rating out of 10:");
+        if (rating === null) return;
+        rating = parseFloat(rating);
+        if (isNaN(rating) || rating < 0 || rating > 10) {
+          alert("Invalid rating.");
+          return;
+        }
+        user.completed.push([id, rating]);
+      } else {
+        user[listName].push(id);
+      }
+      users[userIndex] = user;
+      localStorage.setItem("currentUser", JSON.stringify(user));
+      localStorage.setItem("users", JSON.stringify(users));
+      alert(`Game added to ${listName}!`);
+    } else {
+      alert(`Game already added to a list.`);
+    }
+  };
+
   console.log(url);
   return (
     <div className="flex flex-col justify-between items-center min-h-screen bg-zinc-800 text-gray-200">
@@ -116,13 +164,22 @@ export default function GameDetails() {
 
       {/* Buttons */}
       <div className="mt-6 flex space-x-4">
-        <button className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">
+        <button
+          onClick={() => addToList("backlog")}
+          className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
+        >
           Backlog
         </button>
-        <button className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition">
+        <button
+          onClick={() => addToList("playing")}
+          className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition"
+        >
           Playing
         </button>
-        <button className="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-900 transition">
+        <button
+          onClick={() => addToList("completed")}
+          className="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-900 transition"
+        >
           Completed
         </button>
       </div>
