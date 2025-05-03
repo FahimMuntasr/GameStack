@@ -72,34 +72,59 @@ export default function GameDetails() {
 
     const user = users[userIndex];
 
-    if (!user[listName]) {
-      user[listName] = [];
-    }
-    const alreadyExists =
-      ["backlog", "playing"].some((list) => user[list].includes(id)) ||
-      user.completed.some((entry) =>
-        Array.isArray(entry) ? entry[0] == id : entry === id
+    // Ensure all lists exist
+    if (!user.backlog) user.backlog = [];
+    if (!user.playing) user.playing = [];
+    if (!user.completed) user.completed = [];
+
+    // Function to remove ID from all lists
+    const removeFromAllLists = (id) => {
+      user.backlog = user.backlog.filter((gameId) => gameId !== id);
+      user.playing = user.playing.filter((gameId) => gameId !== id);
+      user.completed = user.completed.filter((entry) =>
+        Array.isArray(entry) ? entry[0] !== id : entry !== id
       );
-    if (!alreadyExists) {
-      if (listName === "completed") {
-        let rating = prompt("Enter your rating out of 10:");
-        if (rating === null) return;
-        rating = parseFloat(rating);
-        if (isNaN(rating) || rating < 0 || rating > 10) {
-          alert("Invalid rating.");
-          return;
-        }
-        user.completed.push([id, rating]);
+    };
+
+    const isInList = (list, id) => {
+      if (list === "completed") {
+        return user.completed.some((entry) =>
+          Array.isArray(entry) ? entry[0] == id : entry == id
+        );
       } else {
-        user[listName].push(id);
+        return user[list].includes(id);
       }
-      users[userIndex] = user;
-      localStorage.setItem("currentUser", JSON.stringify(user));
-      localStorage.setItem("users", JSON.stringify(users));
-      alert(`Game added to ${listName}!`);
-    } else {
-      alert(`Game already added to a list.`);
+    };
+
+    const wasInAnotherList = ["backlog", "playing", "completed"].some((list) =>
+      isInList(list, id)
+    );
+
+    if (wasInAnotherList) {
+      // Remove from all other lists
+      removeFromAllLists(id);
+      alert(`Game was already in another list. Moving it to ${listName}.`);
     }
+
+    // Add to the new list
+    if (listName === "completed") {
+      let rating = prompt("Enter your rating out of 10:");
+      if (rating === null) return;
+      rating = parseFloat(rating);
+      if (isNaN(rating) || rating < 0 || rating > 10) {
+        alert("Invalid rating.");
+        return;
+      }
+      user.completed.push([id, rating]);
+    } else {
+      user[listName].push(id);
+    }
+
+    // Save changes
+    users[userIndex] = user;
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    localStorage.setItem("users", JSON.stringify(users));
+    alert(`Game added to ${listName}!`);
   };
 
   console.log(url);
