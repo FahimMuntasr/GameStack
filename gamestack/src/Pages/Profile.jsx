@@ -2,19 +2,18 @@ import { useState, useEffect } from "react";
 import FootNote from "../Components/FootNote";
 import NavBarMain from "../Components/NavBarMain";
 import { useNavigate } from "react-router-dom";
+import GameList from "../Components/GameList";
 
 export default function Profile() {
   const [profile, setProfile] = useState(null);
+  const [selectedList, setSelectedList] = useState("completed");
   const navigate = useNavigate();
 
-  //load current user and their data
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    console.log(currentUser);
     const allUsers = JSON.parse(localStorage.getItem("users")) || [];
-    console.log(allUsers);
-    const userData = allUsers.find((user) => user.email === currentUser.email);
-    console.log(userData);
+    const userData = allUsers.find((user) => user.email === currentUser?.email);
+
     if (!userData) {
       navigate("/login");
     } else {
@@ -26,8 +25,6 @@ export default function Profile() {
         completed: userData.completed || [],
       });
     }
-    console.log(profile);
-    //localStorage.setItem();
   }, [navigate]);
 
   return (
@@ -36,25 +33,39 @@ export default function Profile() {
 
       <div className="min-h-screen flex flex-col items-center justify-center text-white py-8">
         {profile ? (
-          <div className="text-center">
-            <div className="bg-pink-900">
-              <div className="flex flex-col item-start">
-                <h1>{profile.name}</h1>
-                <p>{profile.email}</p>
+          <div className="text-center w-full max-w-3xl">
+            <div className="bg-pink-900 p-4 rounded-md mb-4">
+              <div className="flex flex-col items-start mb-2">
+                <h1 className="text-2xl font-bold">{profile.name}</h1>
+                <p className="text-sm text-gray-300">{profile.email}</p>
               </div>
-              <div className="flex flex-row justify-center">
-                <p className="mr-2">Backlog {profile.backlog.length} </p>
-                <p className="mr-2">Playing {profile.playing.length} </p>
-                <p className="mr-2">Completed {profile.completed.length} </p>
+              <div className="flex justify-center space-x-4 text-white">
+                <p>Backlog: {profile.backlog.length}</p>
+                <p>Playing: {profile.playing.length}</p>
+                <p>Completed: {profile.completed.length}</p>
               </div>
             </div>
-            <div className="flex flex-col bg-green-800">
-              <div className="flex flex-row">
-                <p>Backlog</p>
-                <p>Playing</p>
-                <p>Completed</p>
-              </div>
-              <div className="flex flex-col"></div>
+
+            {/* Radio buttons */}
+            <div className="flex justify-center space-x-4 mb-6">
+              {["backlog", "playing", "completed"].map((list) => (
+                <label key={list} className="flex items-center space-x-1">
+                  <input
+                    type="radio"
+                    name="gameList"
+                    value={list}
+                    checked={selectedList === list}
+                    onChange={() => setSelectedList(list)}
+                    className="accent-blue-500"
+                  />
+                  <span className="capitalize">{list}</span>
+                </label>
+              ))}
+            </div>
+
+            {/* Render selected list */}
+            <div className="bg-green-800 rounded-md p-4">
+              <GameList listName={selectedList} />
             </div>
           </div>
         ) : (
