@@ -32,7 +32,7 @@
   - [x] Display game data in profile
   - [x] Structure
   - [x] Add remove button
-  - [ ] Styling
+  - [x] Styling
 - [ ] Increase API security
 - [ ] Launch hosting on github
 - [ ] Add backend (optional)

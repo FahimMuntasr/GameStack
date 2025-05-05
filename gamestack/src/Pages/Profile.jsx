@@ -33,38 +33,58 @@ export default function Profile() {
 
       <div className="min-h-screen flex flex-col items-center justify-center text-white py-8">
         {profile ? (
-          <div className="text-center w-full max-w-3xl">
-            <div className="bg-pink-900 p-4 rounded-md mb-4">
-              <div className="flex flex-col items-start mb-2">
-                <h1 className="text-2xl font-bold">{profile.name}</h1>
-                <p className="text-sm text-gray-300">{profile.email}</p>
+          <div className="text-center w-full max-w-3xl bg-zinc-900">
+            <div className="p-4 rounded-md mb-4">
+              <div className="flex flex-col items-start mb-2 border-b border-zinc-600 pb-2">
+                <h1 className="text-2xl font-extrabold">{profile.name}</h1>
+                <p className="text-sm text-red-500 font-bold">
+                  {profile.email}
+                </p>
               </div>
-              <div className="flex justify-center space-x-4 text-white">
-                <p>Backlog: {profile.backlog.length}</p>
-                <p>Playing: {profile.playing.length}</p>
-                <p>Completed: {profile.completed.length}</p>
+              <div className="flex justify-start space-x-4 text-zinc-500 text-white">
+                <p>
+                  Backlog
+                  <span className="text-yellow-300 font-bold">
+                    {" "}
+                    {profile.backlog.length}
+                  </span>
+                </p>
+                <p>
+                  Playing
+                  <span className="text-sky-400 font-bold">
+                    {" "}
+                    {profile.playing.length}
+                  </span>
+                </p>
+                <p>
+                  Completed
+                  <span className="text-green-500 font-bold">
+                    {" "}
+                    {profile.completed.length}
+                  </span>
+                </p>
               </div>
             </div>
 
             {/* Radio buttons */}
-            <div className="flex justify-center space-x-4 mb-6">
+            <div className="grid grid-cols-3 gap-2 mb-6 text-center border-b border-zinc-700">
               {["backlog", "playing", "completed"].map((list) => (
-                <label key={list} className="flex items-center space-x-1">
-                  <input
-                    type="radio"
-                    name="gameList"
-                    value={list}
-                    checked={selectedList === list}
-                    onChange={() => setSelectedList(list)}
-                    className="accent-blue-500"
-                  />
-                  <span className="capitalize">{list}</span>
-                </label>
+                <button
+                  key={list}
+                  onClick={() => setSelectedList(list)}
+                  className={`py-2 capitalize font-semibold transition-colors
+                    ${
+                      selectedList === list
+                        ? "border-b-4 border-red-500 text-zinc-100"
+                        : "border-b-4 border-transparent text-zinc-400 hover:text-white"
+                    }`}
+                >
+                  {list}
+                </button>
               ))}
             </div>
-
             {/* Render selected list */}
-            <div className="bg-green-800 rounded-md p-4">
+            <div className="rounded-md p-4">
               <GameList listName={selectedList} />
             </div>
           </div>
