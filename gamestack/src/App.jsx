@@ -13,7 +13,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<LandingPage />} />
-          <Route path="/home" element={<LandingPage />} />
+          <Route path="/GameStack" element={<LandingPage />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<CreateAcc />} />
           <Route path="/gamedetails" element={<GameDetails />} />
