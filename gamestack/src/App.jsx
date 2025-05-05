@@ -10,7 +10,7 @@ import GameDetails from "./Pages/GameDetails.jsx";
 export default function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/GameStack">
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path="/GameStack" element={<LandingPage />} />
