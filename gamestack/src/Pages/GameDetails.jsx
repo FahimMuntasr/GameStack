@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import NavBarMain from "../Components/NavBarMain";
+import NavBarWoSearch from "../Components/NavBarWoSearch";
 import FootNote from "../Components/FootNote";
 export default function GameDetails() {
   const location = useLocation();
@@ -130,7 +130,7 @@ export default function GameDetails() {
   console.log(url);
   return (
     <div className="flex flex-col justify-between items-center min-h-screen bg-zinc-800 text-gray-200">
-      <NavBarMain />
+      <NavBarWoSearch />
       {/* Content */}
       <div className="w-2/3 relative z-10 flex flex-col items-center ">
         <h1 className="text-4xl font-bold mt-6 mb-6 text-center text-white">

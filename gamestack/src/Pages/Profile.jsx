@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import FootNote from "../Components/FootNote";
-import NavBarMain from "../Components/NavBarMain";
+import NavBarWoSearch from "../Components/NavBarWoSearch";
 import { useNavigate } from "react-router-dom";
 import GameList from "../Components/GameList";
 
@@ -29,7 +29,7 @@ export default function Profile() {
 
   return (
     <>
-      <NavBarMain />
+      <NavBarWoSearch />
 
       <div className="min-h-screen flex flex-col items-center justify-center text-white py-8">
         {profile ? (
