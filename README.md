@@ -33,6 +33,7 @@
   - [x] Structure
   - [x] Add remove button
   - [x] Styling
+- [ ] Make website responsive
 - [ ] Increase API security
 - [ ] Launch hosting on github
 - [ ] Add backend (optional)
