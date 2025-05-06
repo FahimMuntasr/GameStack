@@ -131,22 +131,26 @@ export default function GameDetails() {
   return (
     <div className="flex flex-col justify-between items-center min-h-screen bg-zinc-800 text-gray-200">
       <NavBarWoSearch />
+
       {/* Content */}
-      <div className="w-2/3 relative z-10 flex flex-col items-center ">
-        <h1 className="text-4xl font-bold mt-6 mb-6 text-center text-white">
+      <div className="w-full max-w-6xl px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col items-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-6 mb-6 text-center text-white">
           {gameDetails.name}
         </h1>
 
-        <div className="w-1/2 space-y-4 mb-6">
+        {/* Image */}
+        <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 space-y-4 mb-6">
           <img
             className="w-full rounded-lg shadow-md"
             src={gameDetails.background_image}
             alt={gameDetails.name}
           />
         </div>
-        <div className="flex flex-col w-full items-center border-2 border-zinc-400 rounded-lg overflow-hidden bg-zinc-900 shadow-lg p-4">
-          <div className="w-full p-4 text-gray-300 flex flex-row">
-            <ul className="h-full space-y-2 w-2/5 text-sm text-gray-300">
+
+        {/* Details Card */}
+        <div className="flex flex-col w-full bg-zinc-900 border-2 border-zinc-400 rounded-lg shadow-lg p-4 space-y-4">
+          <div className="flex flex-col md:flex-row md:space-x-4">
+            <ul className="space-y-2 text-sm w-full md:w-2/5 text-gray-300 mb-4 md:mb-0">
               <li className="text-sky-400">
                 <span className="font-semibold text-yellow-400">Released:</span>{" "}
                 {gameDetails.released}
@@ -180,7 +184,8 @@ export default function GameDetails() {
                 {gameDetails.genres.map((g) => g.name).join(", ")}
               </li>
             </ul>
-            <p className="text-sm w-3/5 leading-relaxed">
+
+            <p className="text-sm w-full md:w-3/5 leading-relaxed text-gray-200">
               {gameDetails.description_raw}
             </p>
           </div>
@@ -188,26 +193,27 @@ export default function GameDetails() {
       </div>
 
       {/* Buttons */}
-      <div className="mt-6 flex space-x-4">
+      <div className="mt-6 flex flex-col sm:flex-row gap-4 px-4">
         <button
           onClick={() => addToList("backlog")}
-          className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
+          className="w-full sm:w-auto px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
         >
           Backlog
         </button>
         <button
           onClick={() => addToList("playing")}
-          className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition"
+          className="w-full sm:w-auto px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition"
         >
           Playing
         </button>
         <button
           onClick={() => addToList("completed")}
-          className="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-900 transition"
+          className="w-full sm:w-auto px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-900 transition"
         >
           Completed
         </button>
       </div>
+
       <FootNote />
     </div>
   );

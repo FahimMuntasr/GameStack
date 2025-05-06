@@ -16,14 +16,14 @@ export default function Games() {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [searchQuery, setSearchQuery] = useState(""); // 🔍 new state
+  const [searchQuery, setSearchQuery] = useState("");
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(""); // debounced
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDebouncedSearchQuery(searchQuery);
-      setCurrentPage(1); // Optional: reset to page 1 on new search
-    }, 500); // 500ms debounce
+      setCurrentPage(1);
+    }, 500);
 
     return () => clearTimeout(timeout);
   }, [searchQuery]);
@@ -84,28 +84,50 @@ export default function Games() {
       <NavBarMain searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="flex flex-col justify-center items-center">
         <FilterBar filters={filters} setFilters={setFilters} />
-        <div className="w-11/12 flex flex-row">
+        <div className="w-full flex flex-col items-center px-2 sm:px-4">
           <GameSection games={games} />
         </div>
-        <div className="flex flex-col justify-center items-center mt-4">
-          <div>
+        <div className="w-full mt-auto px-4 py-6 flex flex-col items-center justify-center bg-zinc-900">
+          <div className="flex gap-4 mb-2">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="..."
+              className={`
+        px-4 py-2 
+        rounded-lg 
+        text-white 
+        bg-rose-600 
+        hover:bg-rose-700 
+        transition-colors 
+        duration-200 
+        ease-in-out 
+        disabled:bg-zinc-700 
+        disabled:cursor-not-allowed
+      `}
             >
               Prev
             </button>
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="..."
+              className={`
+        px-4 py-2 
+        rounded-lg 
+        text-white 
+        bg-rose-600 
+        hover:bg-rose-700 
+        transition-colors 
+        duration-200 
+        ease-in-out 
+        disabled:bg-zinc-700 
+        disabled:cursor-not-allowed
+      `}
             >
               Next
             </button>
           </div>
-          <span className="text-white font-medium ">
-            Page {currentPage}/{totalPages}
+          <span className="text-white font-semibold text-lg">
+            Page {currentPage} of {totalPages}
           </span>
         </div>
       </div>

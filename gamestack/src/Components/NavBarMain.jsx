@@ -7,9 +7,9 @@ NavBarMain.propTypes = {
 };
 export default function NavBarMain({ searchQuery, setSearchQuery }) {
   return (
-    <>
-      <div className="top-0 flex flex-row w-full justify-between h-16 items-center text-xl bg-zinc-900">
-        <div className="ml-4">
+    <div className="top-0 flex flex-col lg:flex-row justify-between w-full h-auto lg:h-20 items-center text-xl bg-zinc-900 p-4 space-y-4 lg:space-y-0">
+      <div className="flex flex-col lg:flex-row justify-between w-full lg:w-1/3 items-center space-y-2 lg:space-y-0 lg:space-x-4">
+        <div className="text-2xl">
           <span className="text-yellow-500">Game</span>
           <span className="text-cyan-500">Stack</span>
         </div>
@@ -23,14 +23,14 @@ export default function NavBarMain({ searchQuery, setSearchQuery }) {
             Games
           </span>
         </Link>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search games"
-          className="mr-4 px-2 py-1 rounded bg-zinc-800 text-white placeholder-zinc-400"
-        />
       </div>
-    </>
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder="Search games"
+        className="px-2 py-1 rounded bg-zinc-800 text-white placeholder-zinc-400 w-full lg:w-1/3"
+      />
+    </div>
   );
 }

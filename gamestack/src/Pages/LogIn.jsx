@@ -36,10 +36,12 @@ export default function LogIn() {
   return (
     <>
       <NavBarAnon />
-      <div className="flex flex-col justify-center items-center text-center min-h-screen text-zinc-400 ">
-        <h1 className="text-7xl font-light p-6">Welcome back</h1>
+      <div className="flex flex-col justify-center items-center text-center min-h-screen text-zinc-400 px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light p-4">
+          Welcome back
+        </h1>
 
-        {error && <p className="text-red-400 mb-2">{error}</p>}
+        {error && <p className="text-red-400 mb-2 text-sm">{error}</p>}
 
         <TextInput
           text={"Email/Username"}
@@ -54,13 +56,12 @@ export default function LogIn() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="flex flex-row  w-96">
-          <input type="checkbox" className="mr-2"></input>
-          <p>Remember me</p>
-        </div>
-        <Button text={"Log In"} className="w-96 mt-2" onClick={handleLogin} />
+        <Button text={"Log In"} className="w-96 mt-4" onClick={handleLogin} />
 
-        <Link className="text-zinc-400 hover:text-zinc-50 mt-2" to="/register">
+        <Link
+          className="text-zinc-400 hover:text-zinc-50 mt-4 inline-block text-sm"
+          to="/register"
+        >
           Dont have an account?
         </Link>
       </div>

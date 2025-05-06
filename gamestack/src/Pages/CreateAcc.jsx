@@ -55,9 +55,14 @@ export default function CreateAcc() {
   return (
     <>
       <NavBarAnon />
-      <div className="flex flex-col justify-center items-center text-center min-h-screen text-zinc-400 ">
-        <h1 className="text-7xl font-light p-6">Registration</h1>
-        <form onSubmit={handleSignUp} className="flex flex-col items-center">
+      <div className="flex flex-col justify-center items-center text-center min-h-screen text-zinc-400 px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light p-6">
+          Registration
+        </h1>
+        <form
+          onSubmit={handleSignUp}
+          className="w-full max-w-sm flex flex-col items-stretch"
+        >
           <div className="flex flex-col items-start mb-4">
             <TextInput
               text={"Username"}
@@ -65,7 +70,9 @@ export default function CreateAcc() {
               className="w-96"
               onChange={(e) => setUsername(e.target.value)}
             />
-            <small className="mb-3 ml-3">Maximum of 16 characters</small>
+            <small className="mb-3 ml-1 text-xs sm:text-sm">
+              Maximum of 16 characters
+            </small>
           </div>
           <div className="flex flex-col items start mb-4">
             <TextInput
@@ -83,7 +90,9 @@ export default function CreateAcc() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <small className="mb-3 ml-3">Minimum of 6 characters</small>
+            <small className="mb-3 ml-1 text-xs sm:text-sm">
+              Minimum of 6 characters
+            </small>
           </div>
           <div className="flex flex-col items-start mb-4">
             <TextInput

@@ -31,33 +31,36 @@ export default function Profile() {
     <>
       <NavBarWoSearch />
 
-      <div className="min-h-screen flex flex-col items-center justify-center text-white py-8">
+      <div className="min-h-screen flex flex-col items-center justify-center text-white py-8 px-4 sm:px-6 lg:px-8">
         {profile ? (
-          <div className="text-center w-full max-w-3xl bg-zinc-900">
-            <div className="p-4 rounded-md mb-4">
-              <div className="flex flex-col items-start mb-2 border-b border-zinc-600 pb-2">
-                <h1 className="text-2xl font-extrabold">{profile.name}</h1>
-                <p className="text-sm text-red-500 font-bold">
+          <div className="w-full max-w-5xl bg-zinc-900 rounded-lg shadow-lg">
+            {/* Profile Header */}
+            <div className="p-4 sm:p-6 md:p-8 border-b border-zinc-700">
+              <div className="mb-4">
+                <h1 className="text-2xl sm:text-3xl font-extrabold">
+                  {profile.name}
+                </h1>
+                <p className="text-sm text-red-500 font-bold break-words">
                   {profile.email}
                 </p>
               </div>
-              <div className="flex justify-start space-x-4 text-zinc-500 text-white">
+              <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 text-white text-sm">
                 <p>
-                  Backlog
+                  Backlog:
                   <span className="text-yellow-300 font-bold">
                     {" "}
                     {profile.backlog.length}
                   </span>
                 </p>
                 <p>
-                  Playing
+                  Playing:
                   <span className="text-sky-400 font-bold">
                     {" "}
                     {profile.playing.length}
                   </span>
                 </p>
                 <p>
-                  Completed
+                  Completed:
                   <span className="text-green-500 font-bold">
                     {" "}
                     {profile.completed.length}
@@ -66,16 +69,16 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* Radio buttons */}
-            <div className="grid grid-cols-3 gap-2 mb-6 text-center border-b border-zinc-700">
+            {/* Toggle List Buttons */}
+            <div className="grid grid-cols-3 sm:flex sm:justify-around text-center border-b border-zinc-700">
               {["backlog", "playing", "completed"].map((list) => (
                 <button
                   key={list}
                   onClick={() => setSelectedList(list)}
-                  className={`py-2 capitalize font-semibold transition-colors
+                  className={`py-3 sm:py-4 capitalize font-semibold transition-colors
                     ${
                       selectedList === list
-                        ? "border-b-4 border-red-500 text-zinc-100"
+                        ? "border-b-4 border-red-500 text-white"
                         : "border-b-4 border-transparent text-zinc-400 hover:text-white"
                     }`}
                 >
@@ -83,8 +86,9 @@ export default function Profile() {
                 </button>
               ))}
             </div>
-            {/* Render selected list */}
-            <div className="rounded-md p-4">
+
+            {/* Game List */}
+            <div className="p-4 sm:p-6">
               <GameList listName={selectedList} />
             </div>
           </div>
